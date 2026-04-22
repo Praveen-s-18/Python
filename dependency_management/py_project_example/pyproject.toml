@@ -1,0 +1,14 @@
+[project]
+name = "demo_project"
+version = "0.1.0"
+description = "Learning pyproject.toml"
+requires-python = ">=3.10"
+
+dependencies = [
+    "requests>=2.31",
+    "numpy>=1.26"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
