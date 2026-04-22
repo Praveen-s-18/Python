@@ -1,0 +1,19 @@
+=== Captured AutoGen Stdout ===
+
+
+=== Captured AutoGen Stderr ===
+
+
+=== Chat History ===
+[1] role=assistant, name=user_proxy
+What is the price of Tesla stock?
+
+[2] role=assistant
+None
+
+[3] role=tool, name=user_proxy
+{'symbol': 'TSLA', 'price': 400.6600036621094, 'currency': 'USD', 'source': 'Yahoo Finance'}
+
+[4] role=user, name=assistant
+The current price of Tesla stock is $400.66 USD, according to Yahoo Finance.
+
