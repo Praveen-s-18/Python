@@ -1,0 +1,103 @@
+Django ORM – Quick Notes (Step-by-Step)
+
+1. Install Django
+   pip install django
+
+2. Create Project
+   django-admin startproject django_project
+   cd django_project
+
+3. Run Server (Check Setup)
+   python manage.py runserver
+   Open: http://127.0.0.1:8000/
+
+4. Create App
+   python manage.py startapp student_app
+
+5. Register App
+   Open django_project/settings.py
+
+Add:
+INSTALLED_APPS = [
+'student_app',
+]
+
+6. Create Model (Table)
+   File: student_app/models.py
+
+from django.db import models
+
+class Student(models.Model):
+name = models.CharField(max_length=100)
+age = models.IntegerField()
+
+7. Create Migration
+   python manage.py makemigrations
+
+8. Apply Migration (Create Table)
+   python manage.py migrate
+
+9. Open Django Shell
+   python manage.py shell
+
+10. Import Model
+    from student_app.models import Student
+
+11. CRUD Operations
+
+Create:
+Student.objects.create(name="Alice", age=22)
+
+Read:
+Student.objects.all()
+Student.objects.filter(name="Alice")
+
+Display Data:
+for s in Student.objects.all():
+print(s.id, s.name, s.age)
+
+Update:
+student = Student.objects.get(id=1)
+student.age = 25
+student.save()
+
+Delete:
+student = Student.objects.get(id=2)
+student.delete()
+
+---
+
+Key Concepts:
+
+Table → Class
+Row → Object
+Column → Attribute
+
+Example:
+Student(name="Alice", age=22)
+
+---
+
+Internal Flow:
+
+models.py
+↓
+makemigrations
+↓
+migrate
+↓
+database table created
+↓
+shell
+↓
+CRUD operations
+
+---
+
+Shortcut Mapping:
+
+objects.create() → INSERT
+objects.all() → SELECT
+filter() → WHERE
+save() → UPDATE
+delete() → DELETE
